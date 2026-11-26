@@ -3,6 +3,13 @@
    To show a real job: put the photo in assets/gallery/ and add  img: 'assets/gallery/your-photo.jpg'  to the entry
    (or add a new entry). cat must be one of: apparel, branding, gifts, printing. */
 window.DEMOSH_GALLERY = [
+  { cat: 'apparel',  img: 'assets/img/products/tshirt.jpg',   title: 'Custom round-neck T-shirt' },
+  { cat: 'apparel',  img: 'assets/img/products/jerseys.jpg',  title: 'Custom football jerseys' },
+  { cat: 'branding', img: 'assets/img/products/polo.jpg',     title: 'Branded polo shirt' },
+  { cat: 'gifts',    img: 'assets/img/products/umbrella.jpg', title: 'Branded umbrella' },
+  { cat: 'apparel',  img: 'assets/img/products/hoodie.jpg',   title: 'Custom hoodie' },
+  { cat: 'branding', img: 'assets/img/products/cap.jpg',      title: 'Branded caps' },
+  { cat: 'printing', img: 'assets/gallery/demosh-flyer.jpg',  title: 'Demosh Designs flyer' },
   { cat: 'apparel',  type: 'tee',      bg: '#e8f7fd', color: '#0e0b16', ink: '#ffd21f', label: 'CLASS OF 26', title: 'Class or team T-shirts' },
   { cat: 'branding', type: 'card',     bg: '#fff1f7', color: '#0e0b16', ink: '#ff2d87', label: 'YOUR BRAND', title: 'Business cards' },
   { cat: 'gifts',    type: 'mug',      bg: '#fff8dc', color: '#ffffff', ink: '#ff2d87', label: 'BEST DAD', title: 'Personalised mugs' },

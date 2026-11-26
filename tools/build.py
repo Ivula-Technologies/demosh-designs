@@ -5,6 +5,10 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 WA = '254704121852'
 TEL = '+254704121852'
 PHONE = '+254 704 121 852'
+TEL2 = '+254759078572'
+PHONE2 = '+254 759 078 572'
+CATALOG = 'https://wa.me/c/254704121852'
+SOCIAL = '@Demosh Designs'
 FB = 'https://www.facebook.com/search/top?q=Demosh%20Designs'
 MAPQ = 'Kamutiini, Lower Kabete, Kenya'
 MAPS = 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote(MAPQ)
@@ -20,8 +24,8 @@ I = {
  'fb': '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>',
 }
 DOTS = '<span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>'
-PAGES = [('index.html', 'Home'), ('services.html', 'Services'), ('gallery.html', 'Gallery'), ('about.html', 'About'), ('contact.html', 'Contact')]
-MCOL = ['var(--c)', 'var(--m)', 'var(--y)', '#fff', 'var(--c)']
+PAGES = [('index.html', 'Home'), ('products.html', 'Products'), ('services.html', 'Services'), ('cyber.html', 'Cyber'), ('gallery.html', 'Gallery'), ('about.html', 'About'), ('contact.html', 'Contact')]
+MCOL = ['var(--c)', 'var(--m)', 'var(--y)', '#fff', 'var(--c)', 'var(--m)', 'var(--y)']
 
 def head(title, desc, current):
     nav = ''.join(f'<a href="{h}"{" aria-current=page" if h == current else ""}>{n}</a>' for h, n in PAGES)
@@ -46,14 +50,14 @@ def head(title, desc, current):
 <link rel="preconnect" href="https://assets.mixkit.co">
 <link rel="stylesheet" href="assets/css/site.css">
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"Store","name":"Demosh Designs","description":"Quality apparel, professional branding, personalised gifts and printing services.","telephone":"{TEL}","founder":{{"@type":"Person","name":"Gordon Omala"}},"address":{{"@type":"PostalAddress","streetAddress":"Kamutiini","addressLocality":"Lower Kabete","addressRegion":"Kiambu","addressCountry":"KE"}},"openingHoursSpecification":{{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}}}
+{{"@context":"https://schema.org","@type":"Store","name":"Demosh Designs","description":"Quality apparel, professional branding, personalised gifts and printing services.","telephone":["{TEL}","{TEL2}"],"slogan":"Print. Brand. Inspire.","founder":{{"@type":"Person","name":"Gordon Omala"}},"address":{{"@type":"PostalAddress","streetAddress":"Kamutiini","addressLocality":"Lower Kabete","addressRegion":"Kiambu","addressCountry":"KE"}},"openingHoursSpecification":{{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}}}
 </script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="hdr">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Demosh Designs home">{DOTS}<span><b>Demosh</b><small>Designs</small></span></a>
+    <a class="logo" href="index.html"><img class="lg-light" src="assets/img/logo-light.png" alt="Demosh Designs" width="700" height="443"><img class="lg-dark" src="assets/img/logo.png" alt="" width="700" height="443"></a>
     <nav class="nav" aria-label="Main">{nav}</nav>
     <div class="hdr-cta">
       <a class="btn btn-wa btn-sm" href="{wa("Hi Demosh Designs, I would like to ask about ")}" target="_blank" rel="noopener">{I["wa"]}Chat on WhatsApp</a>
@@ -66,6 +70,7 @@ def head(title, desc, current):
   {mnav}
   <div class="foot">
     <a class="btn btn-wa" href="{wa("Hi Demosh Designs, I would like to ask about ")}" target="_blank" rel="noopener">{I["wa"]}Chat on WhatsApp</a>
+    <a class="btn btn-y" href="{CATALOG}" target="_blank" rel="noopener">Browse our WhatsApp catalogue</a>
     <a class="btn btn-ghost" href="tel:{TEL}">{I["tel"]}Call {PHONE}</a>
   </div>
 </div>
@@ -76,7 +81,7 @@ def foot(extra_js=''):
     return f'''</main>
 <footer class="ftr">
   <div class="wrap">
-    <div class="big">Demosh {DOTS}</div>
+    <div class="big"><img src="assets/img/logo-light.png" alt="Demosh Designs" width="700" height="443" loading="lazy"><span class="tagline">Print {DOTS} Brand {DOTS} Inspire</span></div>
     <div class="cols">
       <div>
         <p style="max-width:36ch">Quality apparel, professional branding, personalised gifts and printing. We bring ideas to life through creativity, quality and attention to detail.</p>
@@ -84,11 +89,13 @@ def foot(extra_js=''):
       <div><h4>Explore</h4><ul>{''.join(f'<li><a href="{h}">{n}</a></li>' for h, n in PAGES)}</ul></div>
       <div><h4>Services</h4><ul>
         <li><a href="services.html#apparel">Apparel</a></li><li><a href="services.html#branding">Branding</a></li>
-        <li><a href="services.html#gifts">Personalised gifts</a></li><li><a href="services.html#printing">Printing</a></li></ul></div>
+        <li><a href="services.html#gifts">Personalised gifts</a></li><li><a href="services.html#printing">Printing</a></li>
+        <li><a href="products.html">Products and prices</a></li><li><a href="cyber.html">Cyber and eCitizen services</a></li></ul></div>
       <div><h4>Reach us</h4><ul>
         <li><a href="tel:{TEL}">{PHONE}</a></li>
-        <li><a href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="{FB}" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="tel:{TEL2}">{PHONE2}</a></li>
+        <li><a href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp</a> &middot; <a href="{CATALOG}" target="_blank" rel="noopener">Catalogue</a></li>
+        <li><a href="{FB}" target="_blank" rel="noopener">Facebook</a>, Instagram, TikTok: {SOCIAL}</li>
         <li><a href="{MAPS}" target="_blank" rel="noopener">Kamutiini, Lower Kabete</a></li>
         <li>Open 24 hours</li></ul></div>
     </div>
@@ -121,11 +128,11 @@ SERVICES = [
  dict(id='apparel', n='01', bg='bg-c', mx='34707', name='apparel', h='Apparel',
       short='T-shirts, hoodies, caps and uniforms that look sharp and last.',
       intro='Custom clothing for your team, school, church, event or brand. Tell us the look you want and we will help you get it right, from the first sketch to the finished piece.',
-      ticks=['Custom T-shirts', 'Hoodies and sweatshirts', 'Caps and hats', 'Staff and team uniforms', 'Event and group wear', 'Your own clothing line']),
+      ticks=['Custom T-shirts', 'Polo shirts', 'Hoodies', 'Football jerseys with names and numbers', 'Team, church and event apparel', 'Bulk orders welcome'], more=('products.html', 'See apparel prices')),
  dict(id='branding', n='02', bg='bg-m', mx='45750', name='branding', h='Branding',
       short='A look people remember, on everything your business touches.',
       intro='Professional branding that makes your business look as good as the work you do. We help you put one clear look on your logo, cards, uniforms and signs.',
-      ticks=['Logo design', 'Business cards', 'Branded uniforms', 'Signs and banners', 'Company merchandise', 'Social media graphics']),
+      ticks=['Logo design', 'Business cards', 'Branded uniforms', 'Signs and banners', 'Branded caps and umbrellas', 'Social media graphics'], more=('products.html#promo', 'See promotional products')),
  dict(id='gifts', n='03', bg='bg-y', mx='15082', name='gifts', h='Personalised gifts',
       short='Mugs, bags and keepsakes made with a name, a photo or a message.',
       intro='Gifts that say you thought about it. Add a name, a photo, a date or a message for birthdays, weddings, graduations, corporate thank-yous and more.',
@@ -133,7 +140,7 @@ SERVICES = [
  dict(id='printing', n='04', bg='bg-w', mx='25260', name='printing', h='Printing',
       short='Flyers, posters, stickers and banners with clean, bright colour.',
       intro='Printing services for business, school and events. Bring your design or let us create one for you, then we print it with sharp detail and true colour.',
-      ticks=['Flyers and posters', 'Banners and roll-ups', 'Stickers and labels', 'Brochures', 'Certificates', 'Event programmes']),
+      ticks=['Flyers and posters', 'Banners and roll-ups', 'Stickers and labels', 'Photo prints', 'Printing and photocopying', 'Scanning and typing'], more=('cyber.html', 'See printing prices')),
 ]
 
 def build_index():
@@ -146,12 +153,12 @@ def build_index():
     body = f'''<section class="hero">
   <div class="hero-media">{vid('45527', 'hero')}</div>
   <div class="wrap">
-    <span class="kicker"><span class="live"></span>Open 24 hours &middot; Lower Kabete</span>
+    <span class="kicker"><span class="live"></span>Print &middot; Brand &middot; Inspire</span>
     <h1>Your idea, <em>made real</em> in <span class="swap" data-swap="apparel.|branding.|gifts.|print.">apparel.</span></h1>
     <p class="lead">Demosh Designs is your destination for quality apparel, professional branding, personalised gifts and printing services. We bring ideas to life through creativity, quality and attention to detail.</p>
     <div class="ctas">
       <a class="btn btn-wa" href="{wa("Hi Demosh Designs, I would like a quote for ")}" target="_blank" rel="noopener">{I["wa"]}Get a quote on WhatsApp</a>
-      <a class="btn btn-ghost" href="services.html">See what we make</a>
+      <a class="btn btn-ghost" href="products.html">Shop products and prices</a>
     </div>
     <div class="meta">
       <span>{I["tel"]}<a href="tel:{TEL}" style="text-decoration:none">{PHONE}</a></span>
@@ -172,6 +179,7 @@ def build_index():
     <div class="svc-grid">{cards}</div>
   </div>
 </section>
+{home_products()}
 
 <section class="sec dark">
   <div class="wrap">
@@ -240,6 +248,7 @@ def build_services():
         <div style="display:flex;flex-wrap:wrap;gap:10px">
           <a class="btn btn-wa" href="{wa(f"Hi Demosh Designs, I would like a quote for {s['h'].lower()}: ")}" target="_blank" rel="noopener">{I["wa"]}Ask about {s["h"].lower()}</a>
           <a class="btn btn-dark" href="contact.html?service={urllib.parse.quote(s["h"])}#quote">Request a quote</a>
+          {f'<a class="btn btn-y" href="{s["more"][0]}">{s["more"][1]}</a>' if s.get("more") else ''}
         </div>
       </div>
     </div>
@@ -264,7 +273,7 @@ def build_gallery():
     <button type="button" data-f="gifts" aria-pressed="false">Gifts</button>
     <button type="button" data-f="printing" aria-pressed="false">Printing</button>
   </div>
-  <p class="note">These are sample mock-ups to show the range. Photos of real Demosh jobs are coming soon, and you can see recent work on our <a href="{FB}" target="_blank" rel="noopener">Facebook page</a>.</p>
+  <p class="note">The first pieces are from our product catalogue. The drawn designs after them are sample ideas. See more on our <a href="{CATALOG}" target="_blank" rel="noopener">WhatsApp catalogue</a> and <a href="{FB}" target="_blank" rel="noopener">Facebook page</a> ({SOCIAL}).</p>
   <div class="gallery" id="gallery"></div>
 </div></section>
 <div class="lb" role="dialog" aria-modal="true" aria-label="Gallery item">
@@ -308,16 +317,17 @@ def build_about():
     return head('About · Demosh Designs', 'Demosh Designs is a design and print studio in Kamutiini, Lower Kabete, led by Gordon Omala. Creativity, quality and attention to detail.', 'about.html') + body + foot()
 
 def build_contact():
-    svc_opts = ''.join(f'<label><input type="checkbox" name="service" value="{s["h"]}"><span>{s["h"]}</span></label>' for s in SERVICES)
+    svc_opts = ''.join(f'<label><input type="checkbox" name="service" value="{s["h"]}"><span>{s["h"]}</span></label>' for s in SERVICES) + '<label><input type="checkbox" name="service" value="Cyber services"><span>Cyber services</span></label>'
     body = subhero('22382', 'contact-hero', 'Contact', "Let's make <em>something</em>.",
                    'Call, WhatsApp or visit us in Kamutiini, Lower Kabete. We are open 24 hours.')
     body += f'''<section class="sec" style="padding-top:60px"><div class="wrap">
   <div class="c-grid">
     <a class="c-card bg-c rv" href="https://wa.me/{WA}" target="_blank" rel="noopener">{I["wa"]}<small>WhatsApp</small><b>Chat with us</b><span>Fastest reply &rarr;</span></a>
-    <a class="c-card bg-m rv d1" href="tel:{TEL}" style="color:#fff">{I["tel"]}<small>Call</small><b>{PHONE}</b><span>Tap to call &rarr;</span></a>
+    <a class="c-card bg-m rv d1" href="tel:{TEL}" style="color:#fff">{I["tel"]}<small>Call</small><b>{PHONE}</b><span>Also {PHONE2} &rarr;</span></a>
     <a class="c-card bg-y rv d2" href="{MAPS}" target="_blank" rel="noopener">{I["pin"]}<small>Visit</small><b>Kamutiini, Lower Kabete</b><span>Open in Google Maps &rarr;</span></a>
-    <a class="c-card rv d3" href="{FB}" target="_blank" rel="noopener" style="background:var(--ink);color:#fff">{I["fb"]}<small>Facebook</small><b>Demosh Designs</b><span>See our page &rarr;</span></a>
+    <a class="c-card rv d3" href="{FB}" target="_blank" rel="noopener" style="background:var(--ink);color:#fff">{I["fb"]}<small>Facebook, Instagram, TikTok</small><b>{SOCIAL}</b><span>Follow our work &rarr;</span></a>
   </div>
+  <div class="ctas-row rv"><a class="btn btn-y" href="{CATALOG}" target="_blank" rel="noopener">{I["wa"]}Browse our WhatsApp catalogue</a><a class="btn btn-dark" href="tel:{TEL2}">{I["tel"]}Call {PHONE2}</a></div>
 </div></section>
 <section class="sec cream" id="quote-sec"><div class="wrap">
   <div class="quote">
@@ -356,11 +366,187 @@ def build_404():
   <div class="wrap"><h1>Misprint. <em>404</em></h1><p class="lead">This page doesn't exist. Let's get you back to something good.</p>
   <div class="ctas"><a class="btn btn-y" href="index.html">Go home</a><a class="btn btn-ghost" href="contact.html">Contact us</a></div></div>
 </section>'''
-    return head('Page not found · Demosh Designs', 'Page not found.', '') .replace('href="assets/', 'href="/assets/').replace('href="index.html"', 'href="/"') + body + foot().replace('src="assets/', 'src="/assets/')
+    return head('Page not found · Demosh Designs', 'Page not found.', '') .replace('href="assets/', 'href="/assets/').replace('href="index.html"', 'href="/"').replace('src="assets/', 'src="/assets/') + body + foot().replace('src="assets/', 'src="/assets/')
+
+# ---------- Products (from the Demosh Designs product catalogue) ----------
+PRODUCTS = [
+ dict(img='tshirt', name='Custom Round-Neck T-Shirt', price='KSh 600', group='apparel',
+      desc='Custom printed T-shirts for personal wear, events, teams and promotions.'),
+ dict(img='polo', name='Custom Polo Shirt', price='KSh 900', group='apparel',
+      desc='Smart branded polos for businesses, teams, staff and organisations.'),
+ dict(img='hoodie', name='Custom Hoodie', price='KSh 2,500', group='apparel',
+      desc='Personalised hoodies with bold prints and custom branding.'),
+ dict(img='jerseys', name='Football Jerseys', price='Fan version KSh 900', price2='Player version KSh 1,500', group='apparel',
+      desc='Team-inspired designs with personalised names, numbers and branding options.'),
+ dict(img='cap', name='Custom Branded Cap', price='KSh 700', group='promo',
+      desc='Branded caps for businesses, teams, campaigns and personal use.'),
+ dict(img='umbrella', name='Custom Branded Umbrella', price='KSh 1,500', group='promo',
+      desc='Promotional umbrellas customised with your logo and brand colours.'),
+]
+
+def product_card(p, i=0):
+    price = f'<b class="price">{p["price"]}</b>' + (f'<b class="price alt">{p["price2"]}</b>' if p.get('price2') else '')
+    msg = f'Hi Demosh Designs, I would like to order: {p["name"]} ({p["price"]}{" / " + p["price2"] if p.get("price2") else ""}).\nQuantity: \nColour: \nSizes: \nDesign/logo: I will send it here.'
+    return f'''<article class="prod rv d{i % 4}">
+  <div class="ph"><img src="assets/img/products/{p["img"]}.jpg" alt="{p["name"]} by Demosh Designs" loading="lazy" width="900" height="900"></div>
+  <div class="pb">
+    <h3>{p["name"]}</h3>
+    <div class="prices">{price}</div>
+    <p>{p["desc"]}</p>
+    <a class="btn btn-wa btn-sm" href="{wa(msg)}" target="_blank" rel="noopener">{I["wa"]}Order on WhatsApp</a>
+  </div>
+</article>'''
+
+def home_products():
+    cards = ''.join(product_card(p, i) for i, p in enumerate(PRODUCTS[:4]))
+    return f'''<section class="sec cream">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">{DOTS} Popular products</p><h2 class="h2 rv">Made for you. Priced fairly.</h2></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-dark" href="products.html">All products</a><a class="btn btn-y" href="{CATALOG}" target="_blank" rel="noopener">WhatsApp catalogue</a></div>
+    </div>
+    <div class="prod-grid">{cards}</div>
+    <p class="fine-print">Starting prices in Kenya Shillings. Final quotes depend on garment quality, print size, artwork, personalisation and quantity.</p>
+  </div>
+</section>
+<section class="sec dark tight">
+  <div class="wrap cyber-teaser">
+    <div>
+      <p class="eyebrow">{DOTS} Cyber services</p>
+      <h2 class="h2 rv">Printing, scanning and eCitizen help, next door.</h2>
+      <p class="sub-p rv d1">Photocopies, photo prints, scanning to PDF, KRA, SHA, NSSF, HELB, KUCCPS, passport and more. You approve every detail before we submit.</p>
+      <a class="btn btn-y rv d2" href="cyber.html" style="margin-top:26px">See all cyber prices</a>
+    </div>
+    <ul class="mini-prices rv d1">
+      <li><span>A4 black and white print or copy</span><b>KSh 10</b></li>
+      <li><span>A4 colour print or copy</span><b>KSh 20</b></li>
+      <li><span>Photo print, 6 &times; 4 inch</span><b>KSh 30</b></li>
+      <li><span>Scan to email or USB, per page</span><b>KSh 20</b></li>
+      <li><span>KRA nil returns assistance</span><b>KSh 300</b></li>
+      <li><span>eCitizen basic assistance</span><b>KSh 150</b></li>
+    </ul>
+  </div>
+</section>'''
+
+def build_products():
+    apparel = ''.join(product_card(p, i) for i, p in enumerate(PRODUCTS) if p['group'] == 'apparel')
+    promo = ''.join(product_card(p, i) for i, p in enumerate([p for p in PRODUCTS if p['group'] == 'promo']))
+    extra = f'<div class="jump"><a href="#apparel">Custom apparel</a><a href="#promo">Promotional products</a><a href="{CATALOG}" target="_blank" rel="noopener">WhatsApp catalogue</a></div>'
+    body = subhero('34707', 'products-hero', 'Products', 'Wear it. Brand it. <em>Own it.</em>',
+                   'Your one-stop destination for customised apparel, promotional merchandise and branding.', extra)
+    body += f'''<section class="sec" id="apparel" style="scroll-margin-top:70px">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">{DOTS} Custom apparel</p><h2 class="h2 rv">Clothing with your name on it.</h2></div>
+      <p class="sub-p" style="margin:0">Personalised clothing for individuals, teams, organisations and events.</p>
+    </div>
+    <div class="prod-grid">{apparel}</div>
+  </div>
+</section>
+<section class="sec cream" id="promo" style="scroll-margin-top:70px">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">{DOTS} Promotional products</p><h2 class="h2 rv">Make your brand visible.</h2></div>
+      <p class="sub-p" style="margin:0">Customised everyday essentials that carry your logo wherever they go.</p>
+    </div>
+    <div class="promo-wrap">
+      <div class="prod-grid two-up">{promo}</div>
+      <div class="make-yours rv">
+        <p class="eyebrow" style="color:rgba(255,255,255,.7)">{DOTS} More than a product</p>
+        <h3>Make it yours.</h3>
+        <ul class="ticks light"><li>Custom names and numbers</li><li>Logo and corporate branding</li><li>Team, church and event apparel</li><li>Personalised gifts and promotional merchandise</li><li>Bulk orders welcome</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec dark">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">{DOTS} Place your order</p><h2 class="h2 rv">Ordering takes one message.</h2></div>
+      <p class="sub-p" style="margin:0">Send us your preferred product, quantity, colour and design. Bulk orders and special specifications are quoted individually.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><h3>Pick a product</h3><p>Choose from this page or our WhatsApp catalogue.</p></div>
+      <div class="step rv d1"><h3>Tell us the details</h3><p>Quantity, colours, sizes, names or numbers.</p></div>
+      <div class="step rv d2"><h3>Send your design</h3><p>Share your logo or idea on WhatsApp, or ask us to design it.</p></div>
+      <div class="step rv d3"><h3>We confirm and make it</h3><p>We confirm the final quote, then produce your order.</p></div>
+    </div>
+    <div class="ctas-row" style="margin-top:34px">
+      <a class="btn btn-wa" href="{wa("Hi Demosh Designs, I would like to place an order.")}" target="_blank" rel="noopener">{I["wa"]}Order on WhatsApp</a>
+      <a class="btn btn-y" href="{CATALOG}" target="_blank" rel="noopener">Browse our WhatsApp catalogue</a>
+    </div>
+    <p class="fine-print light">Prices are starting retail prices in Kenya Shillings. Final quotations may vary with garment quality, print size, artwork complexity, personalisation and order quantity.</p>
+  </div>
+</section>
+'''
+    return head('Products and prices · Demosh Designs', 'Custom T-shirts from KSh 600, polos KSh 900, hoodies KSh 2,500, football jerseys, branded caps and umbrellas from Demosh Designs, Lower Kabete. Order on WhatsApp.', 'products.html') + body + foot()
+
+# ---------- Cyber services (from the Demosh Designs cyber services catalogue) ----------
+CYBER = [
+ dict(id='printing', tone='bg-c', h='Cyber and printing', sub='Reliable document services and quality printing.', rows=[
+   ('A4 black and white printing, normal paper', '10 / page'), ('A4 black and white photocopying, normal paper', '10 / page'),
+   ('A4 colour printing, normal paper', '20 / page'), ('A4 colour photocopying, normal paper', '20 / page'),
+   ('A3 black and white printing or photocopying', '20 / page'), ('A3 colour printing', '50 / page')],
+   note='Bulk printing and photocopying quotations are available on request.'),
+ dict(id='specialty', tone='bg-m', h='Specialty printing', sub='The right paper and finish for photos, presentations and important documents.', rows=[
+   ('Glossy paper, A4 colour print', '70 / page'), ('Glossy paper, A5 colour print', '50 / page'),
+   ('Photo paper, 6 × 4 inch print', '30 / print'), ('Photo paper, A5 print', '60 / print'),
+   ('Photo paper, A4 print', '100 / print'), ('Photo paper, A3 print', '180 / print')],
+   note='Specialty-paper prices include the paper and printing.'),
+ dict(id='scanning', tone='bg-y', h='Scanning and digital documents', sub='Get paper into email, USB or one clean PDF.', rows=[
+   ('A4 document scanning to email or USB', '20 / page'), ('Multiple-page scanning to one PDF', 'From 50'),
+   ('PDF merging, splitting or compression', 'From 50'), ('Document typing and formatting', 'From 50 / page'),
+   ('Email attachment or document upload assistance', 'From 50')], note=''),
+ dict(id='ecitizen', tone='bg-w', h='eCitizen and online government services', sub='Help with online applications, registrations, renewals and downloads.', rows=[
+   ('General eCitizen navigation or basic assistance', '150'), ('eCitizen account access or profile assistance', '150'),
+   ('KRA PIN registration or retrieval', '300'), ('KRA nil returns filing', '300'), ('KRA employment returns', '300'),
+   ('SHA registration or account assistance', '300'), ('NSSF registration', '300'), ('Good Conduct application', '200'),
+   ('Driving licence renewal', '300'), ('Passport application', '500'), ('HELB application', '400'),
+   ('KUCCPS application', '400'), ('Business name registration', '700'), ('Other online applications', 'Quote on request')],
+   note='These are Demosh Designs assistance fees only. Government, application, payment, courier and other official charges are separate and paid by the customer.'),
+]
+
+def build_cyber():
+    blocks = ''
+    for b in CYBER:
+        rows = ''.join(f'<tr><td>{r[0]}</td><td>{"KSh " + r[1] if r[1][0].isdigit() else r[1]}</td></tr>' for r in b['rows'])
+        note = f'<p class="tnote">{b["note"]}</p>' if b['note'] else ''
+        ask = wa(f'Hi Demosh Designs, I need help with {b["h"].lower()}: ')
+        blocks += f'''<div class="ptable rv" id="{b["id"]}">
+  <div class="pt-head {b["tone"]}"><h2>{b["h"]}</h2><p>{b["sub"]}</p></div>
+  <table><thead><tr><th scope="col">Service</th><th scope="col">Price (KSh)</th></tr></thead><tbody>{rows}</tbody></table>
+  {note}
+  <a class="btn btn-wa btn-sm" href="{ask}" target="_blank" rel="noopener">{I["wa"]}Ask on WhatsApp</a>
+</div>'''
+    extra = '<div class="jump">' + ''.join(f'<a href="#{b["id"]}">{b["h"].split(" and ")[0] if b["id"] != "ecitizen" else "eCitizen"}</a>' for b in CYBER) + '</div>'
+    body = subhero('25260', 'cyber-hero', 'Cyber services', 'Print. Scan. <em>Sorted.</em>',
+                   'Reliable document services, quality printing and help with online applications in Kamutiini, Lower Kabete. Open 24 hours.', extra)
+    body += f'''<section class="sec" style="padding-top:60px"><div class="wrap"><div class="ptables">{blocks}</div>
+  <p class="fine-print">Prices are in Kenya Shillings. Final charges may vary with paper availability, print coverage, size and your requirements. We confirm the price before printing or before starting any application. Official government charges are not included.</p>
+</div></section>
+<section class="sec dark">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">{DOTS} How to get started</p><h2 class="h2 rv">Your documents. Your details. Your approval.</h2></div>
+    </div>
+    <div class="steps">
+      <div class="step rv"><h3>Tell us the service</h3><p>Message us or walk in and tell us what you need.</p></div>
+      <div class="step rv d1"><h3>We list what's needed</h3><p>We explain the documents and information required.</p></div>
+      <div class="step rv d2"><h3>You approve</h3><p>You review and approve all details before anything is submitted.</p></div>
+      <div class="step rv d3"><h3>We deliver</h3><p>We print, scan or share your completed documents as required.</p></div>
+    </div>
+    <div class="ctas-row" style="margin-top:34px">
+      <a class="btn btn-wa" href="{wa("Hi Demosh Designs, I need help with a cyber service: ")}" target="_blank" rel="noopener">{I["wa"]}Start on WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:{TEL}">{I["tel"]}{PHONE}</a>
+    </div>
+  </div>
+</section>
+'''
+    return head('Cyber and eCitizen services · Demosh Designs', 'Printing from KSh 10 a page, photo prints, scanning, typing, and KRA, SHA, NSSF, HELB, KUCCPS, passport and eCitizen assistance at Demosh Designs, Lower Kabete.', 'cyber.html') + body + foot()
 
 files = {
  'index.html': build_index(), 'services.html': build_services(), 'gallery.html': build_gallery(),
- 'about.html': build_about(), 'contact.html': build_contact(), '404.html': build_404(),
+ 'about.html': build_about(), 'products.html': build_products(), 'cyber.html': build_cyber(), 'contact.html': build_contact(), '404.html': build_404(),
 }
 for name, html in files.items():
     with open(os.path.join(OUT, name), 'w') as f:
